@@ -129,8 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
         progressTitle.textContent = "Analyzing structure & tech stack...";
         progressSubtitle.textContent = "Extracting dependencies, manifests, and key files";
       } else if (step === 3) {
-        progressTitle.textContent = "Synthesizing AI architectural breakdown...";
-        progressSubtitle.textContent = "Gemini is generating the technical explanation";
+        progressTitle.textContent = "Synthesizing architectural breakdown...";
+        progressSubtitle.textContent = "Generating technical explanation and report";
       }
     }, 1800);
   }
