@@ -58,7 +58,32 @@ Do not share or commit your API key.
 
 ## Usage
 
-Run the tool with a GitHub repository URL:
+### 1. Web Frontend (Modern Minimalist UI)
+
+Launch the interactive web application:
+
+```bash
+python app.py
+```
+
+Then open your browser and navigate to:
+
+```text
+http://localhost:5000
+```
+
+The Web UI features:
+- **Instant 1-Click Exploration**: Try popular sample repositories with one click.
+- **Interactive Multi-Step Progress**: Visual tracking across metadata retrieval, structure analysis, key file extraction, and Gemini report synthesis.
+- **Rich Markdown Viewer**: Clean rendered reports with code syntax highlighting.
+- **Structure & File Hierarchy**: Inspect folder distributions and key structural source files.
+- **Export Utilities**: One-click clipboard copy and `.md` file downloads.
+
+---
+
+### 2. Command Line Interface (CLI)
+
+Run the tool from the terminal with a GitHub repository URL:
 
 ```bash
 python main.py https://github.com/owner/repository
@@ -70,7 +95,7 @@ The generated report will be saved as:
 report.md
 ```
 
-### Specify an output file
+#### Specify an output file
 
 You can provide a custom output filename:
 
@@ -83,6 +108,29 @@ For example:
 ```bash
 python main.py https://github.com/psf/requests --output requests.md
 ```
+
+## Deployment (Render)
+
+You can deploy this project to [Render](https://render.com) as a Web Service:
+
+### Option 1: 1-Click Blueprint Deployment
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/vikrant-borkar/github-repo-explainer)
+
+1. Click the **Deploy to Render** button above (or create a **New +** > **Blueprint** on Render connected to this repository).
+2. Render will automatically read `render.yaml`.
+3. Under Environment Variables, enter your `GEMINI_API_KEY`.
+4. Click **Apply** to deploy!
+
+### Option 2: Manual Web Service Setup
+1. On your Render dashboard, click **New +** > **Web Service**.
+2. Connect your GitHub repository: `vikrant-borkar/github-repo-explainer`.
+3. Configure the settings:
+   - **Environment**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python app.py`
+4. Under **Environment Variables**, add:
+   - `GEMINI_API_KEY`: Your Google Gemini API Key.
+5. Click **Create Web Service**.
 
 ## Project Structure
 
