@@ -151,43 +151,56 @@ body {
   padding: 1.5rem 2rem 5rem 2rem;
 }
 
-/* Navbar - Moved slightly right with comfortable margin */
+/* Navbar - Clean floating brand pill */
 .navbar {
   display: flex;
   align-items: center;
-  padding: 1rem 0.5rem 1.5rem 0.5rem;
+  justify-content: flex-start;
+  padding: 1.25rem 0 1rem 0;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: none; /* Removed harsh border */
 }
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-left: 0.5rem; /* Slight shift to the right */
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-default);
+  padding: 0.35rem 0.85rem 0.35rem 0.45rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.brand:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
 .brand-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-sm);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
   background: var(--text-primary);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.15);
   transition: var(--transition);
 }
 
 .brand:hover .brand-icon {
-  transform: rotate(-6deg) scale(1.05);
+  transform: scale(1.08);
 }
 
 .brand-name {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
@@ -200,22 +213,30 @@ body {
   justify-content: center;
   align-items: center;
   margin: 4vh auto 3rem auto;
+  width: 100%;
 }
 
 .hero-heading {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
   font-weight: 800;
   letter-spacing: -0.035em;
   color: var(--text-primary);
-  line-height: 1.15;
-  margin-bottom: 0.75rem;
-  max-width: 680px;
+  line-height: 1.2;
+  margin-bottom: 0.65rem;
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .hero-heading {
+    white-space: nowrap; /* Single line on desktop screens */
+  }
 }
 
 .hero-subheading {
-  font-size: 1.05rem;
+  font-size: 0.925rem; /* Slightly smaller as requested */
   color: var(--text-secondary);
-  max-width: 560px;
+  max-width: 640px;
   margin: 0 auto 2.25rem auto;
   line-height: 1.55;
 }
